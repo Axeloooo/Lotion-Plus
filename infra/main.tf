@@ -7,7 +7,6 @@ terraform {
   }
 }
 
-# specify the provider region
 provider "aws" {
   region = "us-east-1"
 }
@@ -31,6 +30,8 @@ resource "aws_dynamodb_table" "lotion" {
     name = "id"
     type = "S"
   }
+}
 
-
+resource "aws_s3_bucket" "lambda" {
+  bucket = "lotion-lambda"
 }
