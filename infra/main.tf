@@ -11,3 +11,26 @@ terraform {
 provider "aws" {
   region = "us-east-1"
 }
+
+resource "aws_dynamodb_table" "lotion" {
+  name         = "lotion"
+  billing_mode = "PROVISIONED"
+
+  read_capacity  = 1
+  write_capacity = 1
+
+  hash_key  = "email"
+  range_key = "id"
+
+  attribute {
+    name = "email"
+    type = "S"
+  }
+
+  attribute {
+    name = "id"
+    type = "S"
+  }
+
+
+}
