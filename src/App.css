@@ -1,0 +1,309 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css");
+
+* {
+  box-sizing: border-box;
+}
+
+/* GLOBAL STYLES */
+
+body,
+.App {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  font-size: 16px;
+  background: url(https://www.toptal.com/designers/subtlepatterns/patterns/lightpaperfibers.png);
+}
+
+button {
+  background: none;
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  color: #08c;
+}
+button:hover {
+  color: #04c;
+}
+
+.app-container {
+  display: flex;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  width: 100%;
+  height: 95vh;
+
+}
+
+.google-login-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.google-login-container button{
+  border: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+  align-items: center;
+  font-size: 15px;
+  width: 210px;
+  height: 60px;
+  border-radius: 5px;
+  color: black;
+}
+
+.google-login-container button:hover{
+  background: #ddd;
+}
+
+.google-login-container img{
+  max-width: 30px;
+  max-height: 30px;
+}
+
+/* HEADER STYLES */
+.app-header {
+  width: 100%;
+  max-height: 80px;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #ddd;
+  border-top: 3px solid #08c;
+  position: fixed;
+  top:0;
+  left:0;
+
+}
+
+.app-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.app-title h1 {
+  margin: 0.1px;
+  color: #08c;
+  font-size: 2rem;
+}
+
+.app-title h5 {
+  margin: 0.1px;
+  font-size: 12px;
+  color: #999;
+}
+
+.menu {
+  min-height: 77px;
+  min-width: 80px;
+  position: absolute;
+  padding: 10px;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+}
+
+.menu p{
+  font-size: 40px;
+  text-align: center;
+  margin: 0;
+}
+
+.menu:hover {
+  background: #ddd;
+}
+
+.account {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px 30px 0px 20px;
+  min-height: 77px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.account div{
+  min-width: 10px;
+}
+
+.account p{
+  font-size: 15px;
+  text-align: center;
+  margin: 0;
+}
+
+.account button{
+  font-size: 15px;
+}
+/* SIDEBAR STYLES */
+
+.app-sidebar {
+  width: 30%;
+  height: 100vh;
+  border-right: 1px solid #ddd;
+}
+
+.app-sidebar-closed {
+  width: 30%;
+  height: 100vh;
+  border-right: 1px solid #ddd;
+  display:none;
+}
+
+.app-sidebar-header {
+  display: flex;
+  max-height: 50px;
+  border-bottom: 1px solid #ddd;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+}
+.app-sidebar-header h1 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.app-sidebar-notes {
+  height: calc(100vh - 78px);
+  overflow-y: scroll;
+}
+.app-sidebar-note {
+  padding: 25px;
+  cursor: pointer;
+  border-bottom: 1px solid #ddd;
+
+}
+.sidebar-note-title {
+  display: flex;
+  justify-content: space-between;
+  font-size: 20px;
+}
+.app-sidebar-note button {
+  color: crimson;
+}
+.sidebar-note-body {
+  font-size: 15px;
+}
+
+.app-sidebar-note small {
+  margin: 5px 0px 10px 0px;
+  display: block;
+  color: #999;
+}
+
+.app-sidebar-note:hover {
+  background: #ddd;
+}
+.app-sidebar-note.active,
+.app-sidebar-note.active small {
+  background: #08c;
+  color: white;
+}
+
+/* NOTE EDITOR/PREVIEW (MAIN) STYLES */
+
+.app-main {
+  width: 100%;
+  height: 100vh;
+}
+
+.app-main-note-edit,
+.app-main-note-preview {
+  width: 100%;
+}
+
+.no-active-note {
+  width: 100%;
+  height: 100vh;
+  line-height: 100vh;
+  text-align: center;
+  font-size: 2rem;
+  color: #999;
+}
+
+.app-main-note-header {
+  width:100%;
+  max-height: 80px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 10px 15px 25px;
+  border-bottom: 1px solid #ddd;
+}
+
+.title{
+  border: none;
+  width: 100%;
+  max-height: 40px;
+  padding: 0px;
+  margin: 0px;
+  resize: none;
+  font-size: 25px;
+  font-family: inherit;
+}
+
+.date {
+  margin: 0;
+  padding: 5px 0px 0px 0px;
+  font-size: 0.8rem;
+  color: #999;
+  border:none;
+}
+
+.app-main-note-header-buttons button {
+  padding: 0px 15px 0px 20px;
+  color: black;
+}
+
+.app-main-note-header-title input:focus {
+  outline: none;
+}
+
+/* Editor */
+.app-main-note-edit {
+  height: 100%;
+  padding: 0px;
+  margin: 0px;
+}
+
+.editor {
+  height: 100%;
+  width: 100%;
+  border: none;
+}
+
+.ql-container.ql-snow {
+  border: none !important;
+  font-size: 15px;
+}
+
+.ql-toolbar.ql-snow {
+  border-top: none !important;
+  border-left: none !important;
+}
+
+/* Preview */
+
+.app-main-note-preview-container {
+  height: 100%;
+  padding: 15px 14px 15px 14px;
+  overflow-y: scroll;
+}
+
+.app-main-note-preview-text{
+  font-size: 15px;
+}
