@@ -75,7 +75,10 @@ resource "aws_iam_policy" "lambda_policy" {
         "dynamodb:PutItem",
         "dynamodb:DeleteItem"
       ],
-      "Resource": "arn:aws:logs:*:*:*",
+      "Resource": [
+        "arn:aws:logs:*:*:*", 
+        "${aws_dynamodb_table.dynamodb.arn}"
+      ],
       "Effect": "Allow"
     }
   ]
