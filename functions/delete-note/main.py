@@ -4,9 +4,6 @@ import json
 dynamodb = boto3.resource("dynamodb")
 table = dynamodb.Table("lotion")
 
-# DELETE
-# https://zpmwd5ukdz6qtutfucvwgvdxd40uxdoa.lambda-url.ca-central-1.on.aws/
-
 
 def lambda_handler(event, context):
     email = event["queryStringParameters"]["email"]

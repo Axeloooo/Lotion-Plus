@@ -5,9 +5,6 @@ from boto3.dynamodb.conditions import Key
 dynamodb = boto3.resource("dynamodb")
 table = dynamodb.Table("lotion")
 
-# GET
-# https://had54xrk4jqcdt4qpwsgkfwbp40yeodp.lambda-url.ca-central-1.on.aws/
-
 
 def lambda_handler(event, context):
     try:
