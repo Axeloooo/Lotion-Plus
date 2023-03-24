@@ -58,7 +58,7 @@ function App() {
     if (profile) {
       const fetchData = async () => {
         const res = await fetch(
-          `https://re3kflzgk76iiasr4shxscuaxe0hjqcv.lambda-url.ca-central-1.on.aws/?email=${profile.email}`,
+          `https://kutzowlnj2bll64ihrbvvxw4gm0decrc.lambda-url.ca-central-1.on.aws/?email=${profile.email}`,
           {
             method: "GET",
             headers: {
@@ -98,7 +98,7 @@ function App() {
     console.log(user.access_token);
     console.log(profile.email);
     await fetch(
-      `https://lqhpngfxpgpasdm74pmsak3dry0aslzn.lambda-url.ca-central-1.on.aws/?email=${profile.email}&id=${updatedNote.id}`,
+      `https://dnltqnxjuxiezjorvdzyfwcwki0vnvao.lambda-url.ca-central-1.on.aws/?email=${profile.email}&id=${updatedNote.id}`,
       {
         method: "POST",
         headers: {
@@ -114,7 +114,7 @@ function App() {
     const answer = window.confirm("Are you sure?");
     if (answer) {
       await fetch(
-        `https://m4e54it7rex52xwgf4iojjcwf40zxysj.lambda-url.ca-central-1.on.aws/?email=${profile.email}&id=${idToDelete}`,
+        `https://kyyxhutyet3eaxfdh3lqt2plnq0ucwik.lambda-url.ca-central-1.on.aws/?email=${profile.email}&id=${idToDelete}`,
         {
           method: "DELETE",
           headers: {
