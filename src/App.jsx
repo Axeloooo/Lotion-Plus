@@ -100,7 +100,7 @@ function App() {
     await fetch(
       `https://lqhpngfxpgpasdm74pmsak3dry0aslzn.lambda-url.ca-central-1.on.aws/?email=${profile.email}&id=${updatedNote.id}`,
       {
-        method: "PUT",
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
           "Access-Token": `${user.access_token}`,
