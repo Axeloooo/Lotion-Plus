@@ -2,14 +2,16 @@ import json
 import boto3
 
 dynamodb = boto3.resource("dynamodb")
-table = dynamodb.Table("lotion")
+table = dynamodb.Table("lotion-30145429")
 
 
 def lambda_handler(event, context):
     email = event["queryStringParameters"]["email"]
     id = event["queryStringParameters"]["id"]
+    print("event: ", event)
     try:
         data = json.loads(event["body"])
+        print(data)
         item = {
             "email": email,
             "id": id,

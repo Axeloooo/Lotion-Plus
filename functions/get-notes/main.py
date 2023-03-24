@@ -3,7 +3,7 @@ import boto3
 from boto3.dynamodb.conditions import Key
 
 dynamodb = boto3.resource("dynamodb")
-table = dynamodb.Table("lotion")
+table = dynamodb.Table("lotion-30145429")
 
 
 def lambda_handler(event, context):
