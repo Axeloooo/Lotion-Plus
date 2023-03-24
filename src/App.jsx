@@ -137,10 +137,14 @@ function App() {
   const logOut = () => {
     googleLogout();
     setProfile(null);
+    localStorage.removeItem('user');
   };
 
   const login = useGoogleLogin({
-    onSuccess: (response) => setUser(response),
+    onSuccess: (response) => {
+      setUser(response)
+      localStorage.setItem('user', JSON.stringify(response))
+    },
     onError: (error) => console.log("Login Failed:", error),
   });
 

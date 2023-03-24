@@ -1,6 +1,6 @@
 import React from "react";
 
-function Header({ profile, logout, openSidebar }) {
+function Header({ user, profile, logout, openSidebar }) {
   return (
     <div className="app-header">
       <div className="app-title">
