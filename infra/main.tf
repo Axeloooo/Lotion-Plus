@@ -156,7 +156,7 @@ resource "aws_lambda_function_url" "save_note" {
   cors {
     allow_credentials = true
     allow_origins     = ["*"]
-    allow_methods     = ["POST", "PUT"]
+    allow_methods     = ["POST"]
     allow_headers     = ["*"]
     expose_headers    = ["keep-alive", "date"]
   }
