@@ -139,6 +139,7 @@ function App() {
     setProfile(null);
     localStorage.removeItem("user");
     setUser(null);
+    setNotes([]);
   };
 
   const login = useGoogleLogin({
