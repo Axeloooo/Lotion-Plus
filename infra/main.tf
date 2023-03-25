@@ -93,19 +93,20 @@ resource "aws_iam_role_policy_attachment" "lambda_attachment" {
 
 data "archive_file" "get_notes" {
   type        = "zip"
-  source_file = "../functions/get-notes/main.py"
+  source_dir  = "../functions/get-notes"
   output_path = "../functions/get-notes/artifact.zip"
 }
 
 data "archive_file" "save_note" {
   type        = "zip"
-  source_file = "../functions/save-note/main.py"
+  source_dir  = "../functions/save-note"
   output_path = "../functions/save-note/artifact.zip"
+
 }
 
 data "archive_file" "delete_note" {
   type        = "zip"
-  source_file = "../functions/delete-note/main.py"
+  source_dir  = "../functions/delete-note"
   output_path = "../functions/delete-note/artifact.zip"
 }
 
