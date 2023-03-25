@@ -95,8 +95,6 @@ function App() {
     });
 
     setNotes(updatedNotesArray);
-    console.log(user.access_token);
-    console.log(profile.email);
     await fetch(
       `https://dnltqnxjuxiezjorvdzyfwcwki0vnvao.lambda-url.ca-central-1.on.aws/?email=${profile.email}&id=${updatedNote.id}`,
       {
