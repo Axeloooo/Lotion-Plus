@@ -16,7 +16,7 @@ function App() {
   const [sidebar, setSidebar] = useState(true);
   const [notes, setNotes] = useState([]);
   const [activeNote, setActiveNote] = useState(false);
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(localStorage.user ? JSON.parse(localStorage.user) : null);
   const [profile, setProfile] = useState(null);
 
   const options = {
@@ -55,7 +55,7 @@ function App() {
   }, [user]);
 
   useEffect(() => {
-    if (profile) {
+    if (user) {
       const fetchData = async () => {
         const res = await fetch(
           `https://kutzowlnj2bll64ihrbvvxw4gm0decrc.lambda-url.ca-central-1.on.aws/?email=${profile.email}`,
@@ -137,13 +137,14 @@ function App() {
   const logOut = () => {
     googleLogout();
     setProfile(null);
-    localStorage.removeItem('user');
+    localStorage.removeItem("user");
+    setUser(null);
   };
 
   const login = useGoogleLogin({
     onSuccess: (response) => {
       setUser(response)
-      localStorage.setItem('user', JSON.stringify(response))
+      localStorage.setItem("user", JSON.stringify(response));
     },
     onError: (error) => console.log("Login Failed:", error),
   });
@@ -151,7 +152,7 @@ function App() {
   return (
     <div className="app-container">
       <BrowserRouter>
-        {profile ? (
+        {user ? (
           <>
             <Header
               profile={profile}
