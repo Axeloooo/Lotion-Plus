@@ -59,7 +59,7 @@ function App() {
     if (user) {
       const fetchData = async () => {
         const res = await fetch(
-          `${import.meta.env.REACT_APP_GET_LAMBDA_URL}?email=${profile.email}`,
+          `${process.env.REACT_APP_GET_LAMBDA_URL}?email=${profile.email}`,
           {
             method: "GET",
             headers: {
@@ -97,9 +97,7 @@ function App() {
 
     setNotes(updatedNotesArray);
     await fetch(
-      `${import.meta.env.REACT_APP_POST_LAMBDA_URL}?email=${profile.email}&id=${
-        updatedNote.id
-      }`,
+      `${process.env.REACT_APP_POST_LAMBDA_URL}?email=${profile.email}&id=${updatedNote.id}`,
       {
         method: "POST",
         headers: {
@@ -115,9 +113,7 @@ function App() {
     const answer = window.confirm("Are you sure?");
     if (answer) {
       await fetch(
-        `${import.meta.env.REACT_APP_DELETE_LAMBDA_URL}?email=${
-          profile.email
-        }&id=${idToDelete}`,
+        `${process.env.REACT_APP_DELETE_LAMBDA_URL}?email=${profile.email}&id=${idToDelete}`,
         {
           method: "DELETE",
           headers: {
