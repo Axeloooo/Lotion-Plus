@@ -1,4 +1,3 @@
-// @ts-nocheck
 import React from "react";
 import "./App.css";
 import Main from "./components/Main";
@@ -16,7 +15,9 @@ function App() {
   const [sidebar, setSidebar] = useState(true);
   const [notes, setNotes] = useState([]);
   const [activeNote, setActiveNote] = useState(false);
-  const [user, setUser] = useState(localStorage.user ? JSON.parse(localStorage.user) : null);
+  const [user, setUser] = useState(
+    localStorage.user ? JSON.parse(localStorage.user) : null
+  );
   const [profile, setProfile] = useState(null);
 
   const options = {
@@ -58,7 +59,7 @@ function App() {
     if (user) {
       const fetchData = async () => {
         const res = await fetch(
-          `https://kutzowlnj2bll64ihrbvvxw4gm0decrc.lambda-url.ca-central-1.on.aws/?email=${profile.email}`,
+          `${import.meta.env.REACT_GET_LAMBDA_URL}?email=${profile.email}`,
           {
             method: "GET",
             headers: {
@@ -96,7 +97,9 @@ function App() {
 
     setNotes(updatedNotesArray);
     await fetch(
-      `https://dnltqnxjuxiezjorvdzyfwcwki0vnvao.lambda-url.ca-central-1.on.aws/?email=${profile.email}&id=${updatedNote.id}`,
+      `${import.meta.env.REACT_POST_LAMBDA_URL}?email=${profile.email}&id=${
+        updatedNote.id
+      }`,
       {
         method: "POST",
         headers: {
@@ -112,7 +115,9 @@ function App() {
     const answer = window.confirm("Are you sure?");
     if (answer) {
       await fetch(
-        `https://kyyxhutyet3eaxfdh3lqt2plnq0ucwik.lambda-url.ca-central-1.on.aws/?email=${profile.email}&id=${idToDelete}`,
+        `${import.meta.env.REACT_DELETE_LAMBDA_URL}?email=${
+          profile.email
+        }&id=${idToDelete}`,
         {
           method: "DELETE",
           headers: {
@@ -144,7 +149,7 @@ function App() {
 
   const login = useGoogleLogin({
     onSuccess: (response) => {
-      setUser(response)
+      setUser(response);
       localStorage.setItem("user", JSON.stringify(response));
     },
     onError: (error) => console.log("Login Failed:", error),

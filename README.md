@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/72ac94d3-68d4-4e13-8c4a-e0cd1d635f52/deploy-status)](https://app.netlify.com/sites/sensational-seahorse-f6f16f/deploys)
+
 # Lotion Plus
 
 In this assignment, you will create a backend on AWS for the Lotion app you created in a previous assignment. You will use Terraform for creating resources on AWS.
